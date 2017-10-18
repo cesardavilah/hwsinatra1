@@ -30,8 +30,13 @@ get '/new' do
 end
 
 post '/create' do
-	#replace this
-	return params.to_s
+	@title = params[:title]
+	@body = params[:body]
+	p = Post.new
+	p.title = @title
+	p.body = @body
+	p.save
+	erb :create	
 end
 
 get '/' do
